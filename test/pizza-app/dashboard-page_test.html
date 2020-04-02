@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../../node_modules/sinon/pkg/sinon.js"></script>
+    <script src="../../node_modules/wct-mocha/wct-mocha.js"></script>
+    <script type="module" src="../../src/pizza-app/dashboard-page.js"></script>
+</head>
+
+<body>
+    <test-fixture id="dashboardFixture">
+        <template>
+            <dashboard-page></dashboard-page>
+        </template>
+    </test-fixture>
+    <script>
+
+
+        describe('When the component is rendered', function () {
+            beforeEach(function () {
+                element = fixture('dashboardFixture');
+                elementShadowRoot = element.shadowRoot;
+            });
+            it('should render the component', function () {
+                expect(element).to.be.exist;
+                expect(elementShadowRoot).to.be.exist;
+            });
+            // it('should render the email input field', () => {
+            //     let emailId = elementShadowRoot.querySelector('#emailId')
+            //     expect(emailId).to.be.exist;
+            // });
+
+            // it('should render the password input field', () => {
+            //     let password = elementShadowRoot.querySelector('#password')
+            //     expect(password).to.be.exist;
+            // });
+            it('should render the my order button', () => {
+                let orderBtn = elementShadowRoot.querySelector('#myOrder');
+                expect(orderBtn).to.be.exist;
+                expect(orderBtn.innerHTML).to.be.equal('My Order');
+            });
+            it('should render the cart button', () => {
+                let cartBtn = elementShadowRoot.querySelector('#cart');
+                expect(cartBtn).to.be.exist;
+                expect(cartBtn.innerHTML).to.be.equal('Cart');
+            });
+            it('should render the logout button', () => {
+                let logoutBtn = elementShadowRoot.querySelector('#login');
+                expect(logoutBtn).to.be.exist;
+
+            });
+
+            describe('AND when login Out is clicked', () => {
+                let sinonSpy;
+                let logoutBtn;
+                beforeEach(() => {
+                    logoutBtn = elementShadowRoot.querySelector('#login');
+                    sinonSpy = sinon.spy();
+                    logoutBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleLogout() method once', function (done) {
+                    flush(function () {
+                        logoutBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+
+            describe('AND when My Order button is clicked', () => {
+                let sinonSpy;
+                let myOrderBtn;
+                beforeEach(() => {
+                    myOrderBtn = elementShadowRoot.querySelector('#myOrder');
+                    sinonSpy = sinon.spy();
+                    myOrderBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleMyorder() method once', function (done) {
+                    flush(function () {
+                        myOrderBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+        })
+
+    </script>
+</body>
+
+</html>

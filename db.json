@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "userName": "amit",
+      "email": "amit@gmail.com",
+      "password": "123",
+      "phoneNo": 123456789,
+      "id": 1
+    },
+    {
+      "userName": "sparsh",
+      "email": "sparsh@gmail.com",
+      "password": "123",
+      "phoneNo": 123456789,
+      "id": 2
+    },
+    {
+      "userName": "",
+      "email": "",
+      "password": "",
+      "phoneNo": null,
+      "id": 3
+    },
+    {
+      "userName": "amit",
+      "email": "amit@gmail.com",
+      "password": "123",
+      "phoneNo": 123456789,
+      "id": 4
+    },
+    {
+      "userName": "",
+      "email": "",
+      "password": "",
+      "phoneNo": null,
+      "id": 5
+    },
+    {
+      "userName": "amit",
+      "email": "amit@gmail.com",
+      "password": "123",
+      "phoneNo": 123456789,
+      "id": 6
+    },
+    {
+      "userName": "",
+      "email": "",
+      "password": "",
+      "phoneNo": null,
+      "id": 7
+    },
+    {
+      "userName": "amit",
+      "email": "amit@gmail.com",
+      "password": "123",
+      "phoneNo": 123456789,
+      "id": 8
+    },
+    {
+      "userName": "abhinav",
+      "email": "abhinav@gmail.com",
+      "password": "123",
+      "phoneNo": 1234567890,
+      "id": 9
+    }
+  ],
+  "orders": [
+    {
+      "emailId": "abhinav@gmail.com",
+      "userData": [
+        {
+          "pizzaName": "onion pizza",
+          "price": "200 INR",
+          "rating": "4.5",
+          "size": "9 inch",
+          "description": "Veg",
+          "quantity": 4,
+          "totalAmount": 800
+        },
+        {
+          "pizzaName": "Tomato pizza",
+          "price": "400 INR",
+          "rating": "3.5",
+          "size": "8 inch",
+          "description": "Veg",
+          "quantity": 4,
+          "totalAmount": 1600
+        }
+      ],
+      "id": 1
+    }
+  ]
+}

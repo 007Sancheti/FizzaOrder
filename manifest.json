@@ -1,0 +1,6 @@
+{
+  "name": "pizza",
+  "short_name": "pizza",
+  "start_url": "/",
+  "display": "standalone"
+}

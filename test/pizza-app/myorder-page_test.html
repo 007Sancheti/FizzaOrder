@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="../../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../node_modules/@polymer/test-fixture/test-fixture.js"></script>
+    <script src="../../node_modules/mocha/mocha.js"></script>
+    <script src="../../node_modules/chai/chai.js"></script>
+    <script src="../../node_modules/sinon/pkg/sinon.js"></script>
+    <script src="../../node_modules/wct-mocha/wct-mocha.js"></script>
+    <script type="module" src="../../src/pizza-app/myorder-page.js"></script>
+</head>
+
+<body>
+    <test-fixture id="myOrderFixture">
+        <template>
+            <my-order></my-order>
+        </template>
+    </test-fixture>
+    <script>
+
+
+        describe('When the component is rendered', function () {
+            beforeEach(function () {
+                element = fixture('myOrderFixture');
+                elementShadowRoot = element.shadowRoot;
+            });
+            it('should render the component', function () {
+                expect(element).to.be.exist;
+                expect(elementShadowRoot).to.be.exist;
+            });
+
+            it('should render the Home button', () => {
+                let homeBtn = elementShadowRoot.querySelector('#home');
+                expect(homeBtn).to.be.exist;
+                expect(homeBtn.innerHTML).to.be.equal('Home');
+            });
+            it('should render the logout button', () => {
+                let logoutBtn = elementShadowRoot.querySelector('#logout');
+                expect(logoutBtn).to.be.exist;
+            });
+
+
+            describe('AND when login Out is clicked', () => {
+                let sinonSpy;
+                let logoutBtn;
+                beforeEach(() => {
+                    logoutBtn = elementShadowRoot.querySelector('#logout');
+                    sinonSpy = sinon.spy();
+                    logoutBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleLogout() method once', function (done) {
+                    flush(function () {
+                        logoutBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+
+            describe('AND when Home button is clicked', () => {
+                let sinonSpy;
+                let homeBtn;
+                beforeEach(() => {
+                    homeBtn = elementShadowRoot.querySelector('#home');
+                    sinonSpy = sinon.spy();
+                    homeBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleDashboard() method once', function (done) {
+                    flush(function () {
+                        homeBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+        })
+
+    </script>
+</body>
+
+</html>
