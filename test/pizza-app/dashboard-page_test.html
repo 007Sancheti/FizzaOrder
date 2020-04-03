@@ -29,15 +29,7 @@
                 expect(element).to.be.exist;
                 expect(elementShadowRoot).to.be.exist;
             });
-            // it('should render the email input field', () => {
-            //     let emailId = elementShadowRoot.querySelector('#emailId')
-            //     expect(emailId).to.be.exist;
-            // });
 
-            // it('should render the password input field', () => {
-            //     let password = elementShadowRoot.querySelector('#password')
-            //     expect(password).to.be.exist;
-            // });
             it('should render the my order button', () => {
                 let orderBtn = elementShadowRoot.querySelector('#myOrder');
                 expect(orderBtn).to.be.exist;
@@ -83,6 +75,115 @@
                 it('should call _handleMyorder() method once', function (done) {
                     flush(function () {
                         myOrderBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+            
+            describe(' when cross button is clicked', () => {
+                let sinonSpy;
+                let crossBtn;
+                beforeEach(() => {
+                    crossBtn = elementShadowRoot.querySelector('#cross');
+                    sinonSpy = sinon.spy();
+                    crossBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleCross() method once', function (done) {
+                    flush(function () {
+                        crossBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+            
+            describe(' when handle add button is clicked', () => {
+                let sinonSpy;
+                let addBtn;
+                beforeEach(() => {
+                    addBtn = elementShadowRoot.querySelector('#addBtn');
+                    sinonSpy = sinon.spy();
+                    addBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleAdd() method once', function (done) {
+                    flush(function () {
+                        addBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+            describe(' when handle remove button is clicked', () => {
+                let sinonSpy;
+                let removeBtn;
+                beforeEach(() => {
+                    removeBtn = elementShadowRoot.querySelector('#removeBtn');
+                    sinonSpy = sinon.spy();
+                    removeBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleAdd() method once', function (done) {
+                    flush(function () {
+                        removeBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+
+            describe(' when handle Quantity button is clicked', () => {
+                let sinonSpy;
+                let quantityBtn;
+                beforeEach(() => {
+                    quantityBtn = elementShadowRoot.querySelector('#cart');
+                    sinonSpy = sinon.spy();
+                    quantityBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleQuantity() method once', function (done) {
+                    flush(function () {
+                        removeBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+
+            
+            describe(' when handle Cart button is clicked', () => {
+                let sinonSpy;
+                let cartBtn;
+                beforeEach(() => {
+                    cartBtn = elementShadowRoot.querySelector('#buyNow');
+                    sinonSpy = sinon.spy();
+                    cartBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleCart() method once', function (done) {
+                    flush(function () {
+                        cartBtn.click();
+                        expect(sinonSpy.callCount).to.be.equal(1)
+                        done();
+                    })
+                })
+
+            })
+
+            
+            describe(' when handle  my Cart button is clicked', () => {
+                let sinonSpy;
+                let mycartBtn;
+                beforeEach(() => {
+                    mycartBtn = elementShadowRoot.querySelector('#cart');
+                    sinonSpy = sinon.spy();
+                    mycartBtn.addEventListener('click', sinonSpy);
+                });
+                it('should call _handleMycart() method once', function (done) {
+                    flush(function () {
+                        mycartBtn.click();
                         expect(sinonSpy.callCount).to.be.equal(1)
                         done();
                     })
